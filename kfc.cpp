@@ -7,7 +7,7 @@ KFC::KFC(int features) {
 
 void KFC::forward() {
 	set<int> currSet;
-	vector<pair<int,set<int>>> maxMap;
+	vector<pair<double,set<int>>> maxMap;
 	set<int> nums;
 	double val, toBeAddedPercent=0;
 	int toBeAddedFeature;
@@ -26,9 +26,9 @@ void KFC::forward() {
 			val = evalForward(currSet,j);
 			
     		
-			cout<<"using feature(s) {";
-			for(auto numInSet:currSet) cout<<numInSet<<",";
-			cout<<j<<"} accuracy is "<<val<<"%\n";
+			cout<<"using feature(s) ";
+			printSet(currSet,j,1);
+			cout<<" accuracy is "<<val<<"%\n";
 			if(toBeAddedPercent < val) {
 				toBeAddedPercent = val;
 				toBeAddedFeature = j;
@@ -37,18 +37,14 @@ void KFC::forward() {
 		cout<<endl;
 
 		currSet.insert(toBeAddedFeature);
-		cout<<"Feature set {";
-		auto it = currSet.begin();
-		cout<<*it; it++;
-		for(; it != currSet.end(); it++) {
-			cout<<","<<*it;
-		}
-		cout<<"} was best, accuracy is "<<toBeAddedPercent<<"%\n"<<endl;
+		cout<<"Feature set ";
+		printSet(currSet,0,0);
+		cout<<" was best, accuracy is "<<toBeAddedPercent<<"%\n"<<endl;
 		maxMap.push_back({toBeAddedPercent,currSet});
 		nums.erase(toBeAddedFeature);
 	}
 	auto mx = max_element(maxMap.begin(), maxMap.end());
-	cout<<"Finished search!! The best feature subset is {";
+	cout<<"Finished search!! The best feature subset is ";
 	auto it = mx->second.begin();
 	cout<<*it; it++;
 	for(; it != mx->second.end(); it++) {
@@ -62,7 +58,7 @@ void KFC::forward() {
 
 void KFC::backward() {
 	set<int> currSet;
-	vector<pair<int,set<int>>> maxMap;
+	vector<pair<double,set<int>>> maxMap;
 	double val, toBeDeletedPercent=0;
 	int toBeDeletedFeature;
 	for(int i = 1; i <= fts; i++) currSet.insert(i);
@@ -72,13 +68,10 @@ void KFC::backward() {
 	cout<<"Beginning Backward Search.\n"<<endl;
 	
 	val = evalForward(currSet,1);
-	cout<<"Using features {";
-	auto it = currSet.begin();
-	cout<<*it; it++;
-	for(; it != currSet.end(); it++) {
-		cout<<","<<*it;
-	}
-	cout<<"} accuracy is "<<val<<"%\n"<<endl;
+	cout<<"Using features ";
+	printSet(currSet,0,0);
+	cout<<" accuracy is "<<val<<"%\n"<<endl;
+
 	for(int i = 1; i < fts; i++) {
 		//is parent rn, branch to children
 		toBeDeletedFeature = *currSet.begin();
@@ -88,25 +81,48 @@ void KFC::backward() {
 			//removes one from the currset and calculates
 		
 			val = evalBackward(currSet,j);
-			cout<<"Using feature(s) {";
+
+			cout<<"Using feature(s) ";
+			printSet(currSet,j,2);
+			cout<<" accuracy is "<<val<<"%\n";
+
+			if(toBeDeletedPercent < val) {
+				toBeDeletedPercent = val;
+				toBeDeletedFeature = j;
+			}
 
 		}
+		cout<<endl;
 
+		currSet.erase(toBeDeletedFeature);
+		cout<<"Feature set ";
+		printSet(currSet,0,0);
+		cout<<" was best, accuracy is "<<toBeDeletedPercent<<"%\n"<<endl;
+		maxMap.push_back({toBeDeletedPercent,currSet});
 	}
 	auto mx = max_element(maxMap.begin(), maxMap.end());
-	cout<<"Finished search!! The best feature subset is {";
-	it = mx->second.begin();
-	cout<<*it; it++;
-	for(; it != mx->second.end(); it++) {
-		cout<<","<<*it;
-	}
-	cout<<"}, which has an accuracy of "<<mx->first<<"%"<<endl;
+	cout<<"Finished search!! The best feature subset is ";
+	printSet(mx->second, 0,0);
+	cout<<", which has an accuracy of "<<mx->first<<"%"<<endl;
 }
 
 
 
 void KFC::special(){}
-void KFC::printSet(const set<int>& s) {}
+void KFC::printSet(set<int> s, int num, int status) {
+	if(status==1) {
+		s.insert(num);
+	} else if(status==2) {
+		s.erase(num);
+	}
+	auto it = s.begin();
+	cout<<"{"<<*it;
+	it++;
+	for(;it != s.end(); it++) {
+		cout<<","<<*it;
+	}
+	cout<<"}";
+}
 
 double KFC::evalForward(set<int>& s, int ft) {
 	

@@ -18,7 +18,7 @@ public:
 	void special();
 	double evalForward(set<int>& s, int ft);
 	double evalBackward(set<int>& s, int ft);
-	void printSet(const set<int>& s);
+	void printSet(set<int> s, int num, int status);
 };
 
 
