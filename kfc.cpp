@@ -24,8 +24,10 @@ void KFC::forward() {
 		for(int j : nums) {
 			//adds j to currset and evaluate
 			//returns random val for now
+
+
 			val = evalForward(currSet,j);
-			
+		
     		
 			cout<<"using feature(s) ";
 			printSet(currSet,j,1);
