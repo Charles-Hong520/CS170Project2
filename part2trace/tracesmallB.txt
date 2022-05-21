@@ -1,0 +1,92 @@
+Welcome to Charles Hong's Feature Selection Algorithm.
+Please enter total number of features: Type the number of the algorithm you want to run.
+1. Forward Selection
+2. Backward Elimination
+3. Charles's Special Algorithm
+Type the file name
+Beginning Backward Search.
+
+Using features {1,2,3,4,5,6,7,8,9,10} accuracy is 68.0%
+
+Using feature(s) {2,3,4,5,6,7,8,9,10} accuracy is 71.0%
+Using feature(s) {1,3,4,5,6,7,8,9,10} accuracy is 62.0%
+Using feature(s) {1,2,4,5,6,7,8,9,10} accuracy is 73.0%
+Using feature(s) {1,2,3,5,6,7,8,9,10} accuracy is 70.0%
+Using feature(s) {1,2,3,4,6,7,8,9,10} accuracy is 69.0%
+Using feature(s) {1,2,3,4,5,7,8,9,10} accuracy is 71.0%
+Using feature(s) {1,2,3,4,5,6,8,9,10} accuracy is 62.0%
+Using feature(s) {1,2,3,4,5,6,7,9,10} accuracy is 72.0%
+Using feature(s) {1,2,3,4,5,6,7,8,10} accuracy is 67.0%
+Using feature(s) {1,2,3,4,5,6,7,8,9} accuracy is 72.0%
+
+Feature set {1,2,4,5,6,7,8,9,10} was best, accuracy is 73.0%
+
+Using feature(s) {2,4,5,6,7,8,9,10} accuracy is 72.0%
+Using feature(s) {1,4,5,6,7,8,9,10} accuracy is 73.0%
+Using feature(s) {1,2,5,6,7,8,9,10} accuracy is 69.0%
+Using feature(s) {1,2,4,6,7,8,9,10} accuracy is 64.0%
+Using feature(s) {1,2,4,5,7,8,9,10} accuracy is 75.0%
+Using feature(s) {1,2,4,5,6,8,9,10} accuracy is 68.0%
+Using feature(s) {1,2,4,5,6,7,9,10} accuracy is 68.0%
+Using feature(s) {1,2,4,5,6,7,8,10} accuracy is 73.0%
+Using feature(s) {1,2,4,5,6,7,8,9} accuracy is 67.0%
+
+Feature set {1,2,4,5,7,8,9,10} was best, accuracy is 75.0%
+
+Using feature(s) {2,4,5,7,8,9,10} accuracy is 75.0%
+Using feature(s) {1,4,5,7,8,9,10} accuracy is 73.0%
+Using feature(s) {1,2,5,7,8,9,10} accuracy is 64.0%
+Using feature(s) {1,2,4,7,8,9,10} accuracy is 58.0%
+Using feature(s) {1,2,4,5,8,9,10} accuracy is 71.0%
+Using feature(s) {1,2,4,5,7,9,10} accuracy is 78.0%
+Using feature(s) {1,2,4,5,7,8,10} accuracy is 77.0%
+Using feature(s) {1,2,4,5,7,8,9} accuracy is 71.0%
+
+Feature set {1,2,4,5,7,9,10} was best, accuracy is 78.0%
+
+Using feature(s) {2,4,5,7,9,10} accuracy is 76.0%
+Using feature(s) {1,4,5,7,9,10} accuracy is 73.0%
+Using feature(s) {1,2,5,7,9,10} accuracy is 67.0%
+Using feature(s) {1,2,4,7,9,10} accuracy is 61.0%
+Using feature(s) {1,2,4,5,9,10} accuracy is 75.0%
+Using feature(s) {1,2,4,5,7,10} accuracy is 79.0%
+Using feature(s) {1,2,4,5,7,9} accuracy is 76.0%
+
+Feature set {1,2,4,5,7,10} was best, accuracy is 79.0%
+
+Using feature(s) {2,4,5,7,10} accuracy is 83.0%
+Using feature(s) {1,4,5,7,10} accuracy is 71.0%
+Using feature(s) {1,2,5,7,10} accuracy is 75.0%
+Using feature(s) {1,2,4,7,10} accuracy is 60.0%
+Using feature(s) {1,2,4,5,10} accuracy is 75.0%
+Using feature(s) {1,2,4,5,7} accuracy is 77.0%
+
+Feature set {2,4,5,7,10} was best, accuracy is 83.0%
+
+Using feature(s) {4,5,7,10} accuracy is 79.0%
+Using feature(s) {2,5,7,10} accuracy is 81.0%
+Using feature(s) {2,4,7,10} accuracy is 71.0%
+Using feature(s) {2,4,5,10} accuracy is 76.0%
+Using feature(s) {2,4,5,7} accuracy is 76.0%
+
+Feature set {2,5,7,10} was best, accuracy is 81.0%
+
+Using feature(s) {5,7,10} accuracy is 75.0%
+Using feature(s) {2,7,10} accuracy is 68.0%
+Using feature(s) {2,5,10} accuracy is 72.0%
+Using feature(s) {2,5,7} accuracy is 77.0%
+
+Feature set {2,5,7} was best, accuracy is 77.0%
+
+Using feature(s) {5,7} accuracy is 80.0%
+Using feature(s) {2,7} accuracy is 54.0%
+Using feature(s) {2,5} accuracy is 80.0%
+
+Feature set {5,7} was best, accuracy is 80.0%
+
+Using feature(s) {7} accuracy is 62.0%
+Using feature(s) {5} accuracy is 75.0%
+
+Feature set {5} was best, accuracy is 75.0%
+
+Finished search!! The best feature subset is {2,4,5,7,10}, which has an accuracy of 83.0%
