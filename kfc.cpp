@@ -151,7 +151,9 @@ double KFC::loocv(vector<int>& feats) {
 	int n = data.size();
 	double distance; 
 	int correct_classified = 0;
-	vector<pair<double,double> > nn(n,make_pair(std::numeric_limits<double>::max(),0)); //mindist of NN, class of NN
+	
+	//mindist of NN, class of NN
+	vector<pair<double,double> > nn(n,make_pair(std::numeric_limits<double>::max(),0)); 
 	for(int i = 0; i < n-1; i++) {
 		for(int j = i+1; j < n; j++) {
 			distance = euclDistOfFeatures(feats, data[i], data[j]);
